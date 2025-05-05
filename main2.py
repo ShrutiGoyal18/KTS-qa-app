@@ -22,10 +22,14 @@ from langchain_openai import AzureChatOpenAI
 # --------------------------
 # Load environment vars
 # --------------------------
-load_dotenv()
-AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
-AZURE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT") 
-AZURE_DEPLOYMENT_NAME = os.getenv("AZURE_DEPLOYMENT_NAME")
+#load_dotenv()
+#AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
+#AZURE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT") 
+#AZURE_DEPLOYMENT_NAME = os.getenv("AZURE_DEPLOYMENT_NAME")
+
+AZURE_OPENAI_API_KEY = "8a59eda1d38c425fbe82a580cf4a8aeb"
+AZURE_ENDPOINT = "https://ipds-dev-eastus-openai.openai.azure.com/"
+AZURE_DEPLOYMENT_NAME = "gpt-4o-mini"
 
 # Print values for debugging (remove in production)
 print(f"Azure Endpoint: {AZURE_ENDPOINT}")

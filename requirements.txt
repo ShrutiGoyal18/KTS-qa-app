@@ -1,17 +1,17 @@
 openai
-sentence-transformers==2.2.2
+sentence-transformers
 transformers
-torch==2.2.0
+torch
 PyMuPDF
 tqdm
 python-dotenv
 langchain
-langchain-openai==0.0.2
+langchain-openai
 faiss-cpu
 pdfplumber
 pytesseract
 pdf2image
 python-docx
-streamlit==1.32.0
+streamlit
 numpy
 

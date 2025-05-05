@@ -22,10 +22,32 @@ from langchain_openai import AzureChatOpenAI
 # --------------------------
 # Load environment vars
 # --------------------------
-load_dotenv()
-AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
-AZURE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT") 
-AZURE_DEPLOYMENT_NAME = os.getenv("AZURE_DEPLOYMENT_NAME")
+# Replace the current dotenv loading code at line ~15-30
+import os
+from dotenv import load_dotenv
+
+# Try to load from Streamlit secrets first, then fall back to .env file
+try:
+    import streamlit as st
+    # Use Streamlit secrets if available
+    AZURE_OPENAI_API_KEY = st.secrets.get("AZURE_OPENAI_API_KEY", None)
+    AZURE_ENDPOINT = st.secrets.get("AZURE_OPENAI_ENDPOINT", None)
+    AZURE_DEPLOYMENT_NAME = st.secrets.get("AZURE_DEPLOYMENT_NAME", None)
+    
+    if AZURE_OPENAI_API_KEY and AZURE_ENDPOINT and AZURE_DEPLOYMENT_NAME:
+        print("Using Azure OpenAI credentials from Streamlit secrets")
+    else:
+        # Fall back to .env file
+        load_dotenv()
+        AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
+        AZURE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT") 
+        AZURE_DEPLOYMENT_NAME = os.getenv("AZURE_DEPLOYMENT_NAME")
+except ImportError:
+    # Not running in Streamlit environment
+    load_dotenv()
+    AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
+    AZURE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT") 
+    AZURE_DEPLOYMENT_NAME = os.getenv("AZURE_DEPLOYMENT_NAME")
 
 # Print values for debugging (remove in production)
 print(f"Azure Endpoint: {AZURE_ENDPOINT}")

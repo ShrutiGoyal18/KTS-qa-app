@@ -20,7 +20,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 torch.set_num_threads(4)  # Limit CPU threads
 
 # Import the main functionality from your main2.py
-from main2 import (
+from final import (
     FAISSIndex, 
     doc_hash, 
     extract_text_from_docx, 

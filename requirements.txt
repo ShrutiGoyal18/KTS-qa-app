@@ -1,0 +1,17 @@
+openai
+sentence-transformers
+transformers
+torch
+PyMuPDF
+tqdm
+python-dotenv
+langchain
+langchain-openai
+faiss-cpu
+pdfplumber
+pytesseract
+pdf2image
+python-docx
+streamlit
+numpy
+

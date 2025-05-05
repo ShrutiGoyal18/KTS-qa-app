@@ -1,7 +1,7 @@
 openai
 sentence-transformers==2.2.2
 transformers
-torch==2.0.1
+torch==2.2.0
 PyMuPDF
 tqdm
 python-dotenv
